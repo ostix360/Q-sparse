@@ -72,6 +72,15 @@ class TopKSparsity(nn.Module):
         x = x / (torch.norm(x, p=2, dim=-1, keepdim=True) + 1e-6)
         return x
 
+    def set_k_ratio(self, k_ratio):
+        """
+        Sets the k_ratio for the TopKSparsity module.
+
+        Args:
+            k_ratio (float): Ratio of elements to keep (top-k).
+        """
+        self.k_ratio = k_ratio
+
 
 class QSparseLinear(nn.Linear):
     """
